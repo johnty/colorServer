@@ -15,6 +15,7 @@ from os import curdir, sep
 import SocketServer
 import os.path
 import serial
+import time
 
 
 ser = 0
@@ -51,7 +52,7 @@ class S(BaseHTTPRequestHandler):
            self.wfile.write(f.read())
         
         else : #test with adding colour directly into GET path
-           sendSerialColour(self.path)
+           sendSerialColour(self.path[1:7])
            self.wfile.write("<html><body><h1>manual colour set OK</h1></body></html>")
 
     def do_HEAD(self):
@@ -69,9 +70,10 @@ class S(BaseHTTPRequestHandler):
         self.wfile.write("<html><body><h1>POST!</h1></body></html>")
         
 def sendSerialColour(hex_str):
-   cRed = int(hex_str[1:3],16)
-   cGreen = int(hex_str[3:5],16)
-   cBlue = int(hex_str[5:7],16)
+   print "hexstr=",hex_str
+   cRed = int(hex_str[0:2],16)
+   cGreen = int(hex_str[2:4],16)
+   cBlue = int(hex_str[4:6],16)
    print "setting serial RGB: ", cRed,":", cGreen,":", cBlue
    if (ser != 0):
        ser.write(bytearray(["c", cRed, cGreen, cBlue]))
