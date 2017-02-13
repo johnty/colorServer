@@ -1,7 +1,11 @@
 // NeoPixel Ring simple sketch (c) 2013 Shae Erisson
 // released under the GPLv3 license to match the rest of the AdaFruit NeoPixel library
 
-// Feb 2017: added serial control for RGB setting (compiled for teensy LC using pin 17, which is the level shifted 5V output)
+// Adapted for serial control of a light strip. Feb 2017 johntywang@gmail.com
+// added serial control for RGB setting (compiled for teensy LC using pin 17, which is the level shifted 5V output)
+// chars 'r' 'g' and 'b' sends pure colour tests
+// string "cRGB" sets RGB value where R, G, and B are single bytes (0x00-0xFF)
+// note the serial routine is quite dumb and does not do length checking etc...
 
 #include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
