@@ -8,7 +8,7 @@ designed for use on a raspberry pi and a teensy LC, which has a 5V output on pin
 
 used for indoor hydroponic rack:
 
-![](http://i.imgur.com/iKf5VyS.gif)
+![](http://i.imgur.com/InGTbk0.gif)
 
 - python server based on [this code](https://gist.github.com/thepacketgeek/65bea2613d3d23f9bea5)
 
